@@ -10,7 +10,11 @@ from sqlalchemy import create_engine, inspect, text
 settings = get_settings()
 engine = create_engine(settings.database_url, pool_pre_ping=True, future=True)
 
-mcp = FastMCP("analytics-tools")
+mcp = FastMCP(
+    name="analytics-tools",
+    host="0.0.0.0",
+    port=8001,
+)
 
 def _json_safe(value: Any) -> Any:
     if isinstance(value, Decimal):
@@ -219,4 +223,9 @@ def describe_table(table_name: str) -> dict[str, Any]:
         }
 
 if __name__ == "__main__":
-    mcp.run()
+    print("Starting MCP server on http://localhost:8001/mcp")
+
+    mcp.run(
+        transport="streamable-http",
+        mount_path="/mcp",
+    )
