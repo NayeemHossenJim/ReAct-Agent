@@ -1,6 +1,3 @@
-Create or replace your `README.md` with this:
-
-````md
 # AI Engineer Technical Assessment
 
 Production-oriented AI backend service built for the Backend & AI Engineering Track assessment.
