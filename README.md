@@ -1,4 +1,4 @@
-# AI Engineer Technical Assessment
+# ReAct Agent
 
 Production-oriented AI backend service built for the Backend & AI Engineering Track assessment.
 
